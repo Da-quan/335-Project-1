@@ -169,11 +169,14 @@ sorted_disks sort_lawnmower(const disk_state& before) {
 		  current = 0;
 		  for(int j = 1; j < state.total_count(); j++)
         {
-          if (state.get(current) > state.get(j))
+          if (state.get(current) != state.get(j))
             {
-              state.swap(j);
-		          notCompleted= true;
-              numOfSwap++;
+               if (state.get(current) == DISK_DARK && state.get(current + 1) == DISK_LIGHT)
+               {
+                  state.swap(j);
+		              notCompleted= true;
+                  numOfSwap++;
+               }
             }
            current = j;
         }
@@ -181,13 +184,16 @@ sorted_disks sort_lawnmower(const disk_state& before) {
     else //goes right to left
     {
       current = state.total_count() - 1;
-      for(int j = state.total_count(); j >= 0; j--)
+      for(int j = state.total_count() - 2; j >= 0; j--)
         {
-          if (state.get(current) < state.get(j))
+          if (state.get(current) != state.get(j))
             {
-              state.swap(j);
-		          notCompleted= true;
-              numOfSwap++;
+              if (state.get(current) == DISK_LIGHT && state.get(current - 1) == DISK_DARK)
+               {
+                  state.swap(j);
+		              notCompleted= true;
+                  numOfSwap++;
+               }
             }
            current = j;
         }
