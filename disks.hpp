@@ -129,6 +129,7 @@ public:
              return false;
           }
         }
+        i++;
       }
       return true;
   }
