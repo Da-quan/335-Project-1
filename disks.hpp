@@ -112,7 +112,24 @@ public:
   // Return true when this disk_state is fully sorted, with all light disks on
   // the left (low indices) and all dark disks on the right (high indices).
   bool is_sorted() const {
-
+      int i = 0;
+      while(i < total_count())
+      {
+        if(total_count() - i > total_count() / 2) //checks for Dark disk
+        {
+          if(_colors[total_count() - i - 1] != DISK_DARK)
+          {
+            return false;
+          }
+        }
+        else //checks for Light disk
+        {
+          if(_colors[total_count() - i - 1] != DISK_LIGHT) 
+          {
+             return false;
+          }
+        }
+      }
       return true;
   }
 };
