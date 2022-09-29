@@ -173,8 +173,8 @@ sorted_disks sort_lawnmower(const disk_state& before) {
             {
                if (state.get(current) == DISK_DARK && state.get(current + 1) == DISK_LIGHT)
                {
-                  state.swap(j);
-		              notCompleted= true;
+                  state.swap(current);
+		              notCompleted = true;
                   numOfSwap++;
                }
             }
@@ -190,8 +190,8 @@ sorted_disks sort_lawnmower(const disk_state& before) {
             {
               if (state.get(current) == DISK_LIGHT && state.get(current - 1) == DISK_DARK)
                {
-                  state.swap(j);
-		              notCompleted= true;
+                  state.swap(current - 1);
+		              notCompleted = true;
                   numOfSwap++;
                }
             }
