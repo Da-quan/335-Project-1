@@ -111,9 +111,9 @@ public:
 
   // Return true when this disk_state is fully sorted, with all light disks on
   // the left (low indices) and all dark disks on the right (high indices).
-  bool is_sorted() const {
-      int i = 0;
-      while(i <= total_count())
+  bool is_sorted() const 
+  {
+      for (size_t i = 0; i < total_count(); i++)
       {
         if (i < total_count() / 2) 
         {                   
@@ -129,7 +129,6 @@ public:
               return false;
             }
         }
-        i++;
       }
       return true;
   }
