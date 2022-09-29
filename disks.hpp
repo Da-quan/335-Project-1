@@ -146,14 +146,11 @@ public:
 sorted_disks sort_alternate(const disk_state& before) {
 	int numOfSwap = 0;                                                                      //record # of step swap
   disk_state state = before;                                                                 //record # of step swap
-  //loops n+1 times
-
   for (int i = 0; i < state.light_count()+ 1; i++) {
     // if i is even
     if (i % 2 == 0) {
       // pairs start from the even indexes
       for (int cur_index = 0; cur_index < state.light_count(); cur_index++) {
-
         if (state.get(2*cur_index) == DISK_DARK && state.get(2*cur_index+1) == DISK_LIGHT) {
           state.swap(2*cur_index);
           numOfSwap++;
@@ -169,8 +166,6 @@ sorted_disks sort_alternate(const disk_state& before) {
       }
     }
   }
-
-
   return sorted_disks(disk_state(state), numOfSwap);
 }
 
