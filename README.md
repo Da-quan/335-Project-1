@@ -1,4 +1,5 @@
-# 355-Project-1
+# CPSC 335 - Project 1: implementing algorithms
 
-# Name: Quan Duong, Katie Tran
-      
+# # Group members:
+Quan Duong
+Katie Tran
